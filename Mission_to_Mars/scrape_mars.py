@@ -126,10 +126,6 @@ def scrape():
                     hemi_pages.append(url.get('href'))
     hemi_pages
 
-
-# In[13]:
-
-
 #Scraping the full image from each hemisphere
 
     #Setting up splinter
