@@ -156,18 +156,26 @@ def scrape():
         title = hemi_title.replace('Enhanced', '')
     
         hemi_dict = {"title" : title, "img_url": image_url}
-        hemisphere_image_urls.append(hemi_dict)
+        hemisphere_image_urls.append(hemi_dict)  
 
-#Completed list of dictionaries
-    browser.quit()
-    
+    #Completed list of hemisphere dictionaries
     hemisphere_image_urls
 
-                                
+    #Compiling composite dictionary
+    final_dict =  {"news_title" : news_title,
+                    "news_para" :news_p,
+                    "featured_image" :featured_image_url,
+                    "mars_table" : mars_info_html_table,
+                    "hemi_images" : hemisphere_image_urls}
+    
+    #Quit browser
+    browser.quit()
+    
+    return final_dict
+                             
     
 
 
-# In[ ]:
 
 
 
