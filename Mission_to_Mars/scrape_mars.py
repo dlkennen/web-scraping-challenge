@@ -31,8 +31,11 @@ def scrape():
 
 
 #Storing article title and description
-    news_title = mars_soup.find('div', class_='content_title')
-    news_p = mars_soup.find('div', class_='article_teaser_body')
+    news_title = mars_soup.find('div', class_='content_title').text
+    news_p = mars_soup.find('div', class_='article_teaser_body').text
+    
+    #Quit browser
+    browser.quit()
 
 
 # In[6]:
@@ -74,6 +77,8 @@ def scrape():
     featured_image_url = image_url + image_attr_dict['src']
     print(featured_image_url)
 
+    #Quit browser
+    browser.quit()
 
 # In[9]:
 
@@ -102,6 +107,8 @@ def scrape():
     mars_info_html_table = mars_info_html_table.replace('\n', '')
     mars_info_html_table
 
+    #Quit browser
+    browser.quit()
 
 # In[12]:
 

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Mars - The Red Planet</title>
+    </head>
+    <body style = "background-color: darkgray;">
+        <div class = "container">
+            <div class = "row">
+                <div class = "col-md-12">
+                    <h1>Mars: The Red Planet</h1>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-md-12">
+                    <p><a class = "btn btn-primary btn-lg" style= "background-color: red" href = "/scrape" role = "button">Get new Mars info!</a></p>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-md-12">
+                    <p></p>
+                    <h2> {{mars_info.news_title}}</h2>
+                    <h5>{{mars_info.news_para}}</h5>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-md-6">
+                    <img src={{mars_info.featured_image}} class="img-fluid" alt="Mars">                    
+                </div>
+                <div class = "col-md-6">
+                    <table class= "table">
+                        {{mars_info.mars_table | safe}}
+                    </table>
+                </div>
+            </div>
+            <div class = "row">
+                <p></p>
+            </div>
+            <div class = "row">
+                <div class = "col-md-12">
+                    <!-- Loop through the dictionary -->                      
+                        {% for hemi in mars_info.hemi_images %}
+                            <ul style="list-style: none">
+                                <li> <h3>{{hemi['title']}}</h3> </li>
+                                <li> <a href = {{hemi['img_url']}} class = "thumbnail">
+                                    <img src = {{hemi['img_url']}} width="150" height = "150" alt = {{hemi['title']}}>
+                                    </a></li>
+                            </ul>
+                        {% endfor %}
+                </div>
+            </div>
+        </div>
+    </body>
